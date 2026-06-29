@@ -1,0 +1,58 @@
+# Logs & Cache
+*.log
+.DS_Store
+Thumbs.db
+npm-debug.log
+yarn-error.log
+.phpunit.result.cache
+/.phpunit.cache
+
+# Environment & Private Files
+.env
+.env.backup
+.env.production
+.phpactor.json
+/auth.json
+
+# IDEs & Editor Configurations
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencies
+/node_modules
+/vendor
+
+# Laravel Build & Storage
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+Homestead.json
+Homestead.yaml
+
+# Databases (SQLite)
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+
+# NativePHP Builds and local temporary files
+/storage/nativephp/builds/
+/storage/nativephp/nativephp.db
+/nativephp.db
+/nativephp/dist/
+/dist/
+/out/
+
+# Vibe service (deployed separately)
+vibe-service/
+public/vibe/
