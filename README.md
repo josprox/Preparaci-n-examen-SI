@@ -104,9 +104,34 @@ Cuando la aplicación esté lista para distribuirse de forma nativa:
 ### Compilar APK para Android
 Asegúrate de tener configurado tu Android SDK, JDK y Gradle (ej. configurados en tu archivo `.env` o en `config/nativephp.php`), y corre:
 ```bash
-php artisan native:build android
+php artisan native:build --target=android
 ```
 Esto generará el paquete final de instalación en `storage/nativephp/builds/android/` listo para tu celular.
+
+### Firmar la App con tu Certificado Keystore
+
+Para empaquetar y firmar tu aplicación para distribución (Play Store o instalación oficial), debes usar el comando `native:package`. Tienes dos formas de pasar tus credenciales de firma:
+
+#### Opción A: A través de Variables de Entorno (Recomendado)
+Agrega las siguientes variables a tu archivo `.env`:
+```env
+ANDROID_KEYSTORE_FILE="C:\Ruta\A\TuCertificado.jks"
+ANDROID_KEYSTORE_PASSWORD="TuPasswordDeKeystore"
+ANDROID_KEY_ALIAS="TuAlias"
+ANDROID_KEY_PASSWORD="TuPasswordDeAlias"
+```
+Y luego ejecuta:
+```bash
+php artisan native:package android
+```
+
+#### Opción B: Directamente en la consola
+Pasa los parámetros como opciones al comando:
+```bash
+php artisan native:package android --keystore="C:\Ruta\A\TuCertificado.jks" --keystore-password="TuPasswordDeKeystore" --key-alias="TuAlias" --key-password="TuPasswordDeAlias"
+```
+
+El archivo APK firmado resultante se ubicará en la carpeta `/storage/nativephp/builds/android/`.
 
 ---
 

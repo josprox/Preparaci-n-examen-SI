@@ -233,6 +233,13 @@
             var mobileMenuBtn = document.getElementById('mobile-menu-button');
             var mobileMenu = document.getElementById('mobile-menu');
 
+            // Ocultar botón de menú hamburguesa si corre dentro de la app nativa (Capacitor/Android)
+            if (window.Capacitor || window.webkit?.messageHandlers?.cordova) {
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.style.setProperty('display', 'none', 'important');
+                }
+            }
+
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
