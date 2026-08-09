@@ -26,12 +26,23 @@
         <form action="{{ route('quiz.play') }}" method="GET" class="space-y-6">
             <!-- Topic Filter -->
             <div>
-                <label for="topic" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Tema de Estudio</label>
-                <select id="topic" name="topic" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    <option value="all">Todos los temas (Aleatorio completo)</option>
-                    @foreach($topics as $topic)
-                        <option value="{{ $topic }}">{{ $topic }}</option>
-                    @endforeach
+                <label for="topic" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Tema de Estudio / Parcial</label>
+                <select id="topic" name="topic" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 font-outfit">
+                    <option value="all">⚡ Todos los temas (Examen Integrador Global)</option>
+                    <optgroup label="--- PRIMER PARCIAL: REDES NEURONALES ---">
+                        <option value="Sistemas Inteligentes">Sistemas Inteligentes & Agentes</option>
+                        <option value="Sistemas de Control">Sistemas de Control & PID</option>
+                        <option value="Perceptrón Simple">Perceptrón Simple (Hebbio)</option>
+                        <option value="Forward Propagation">Forward Propagation & MLP</option>
+                        <option value="Backpropagation">Backpropagation</option>
+                        <option value="Red Hopfield">Red Neuronal Hopfield</option>
+                    </optgroup>
+                    <optgroup label="--- SEGUNDO PARCIAL: SISTEMAS DE CONOCIMIENTO ---">
+                        <option value="Bases de Conocimiento">Bases de Conocimiento & Motor de Inferencia</option>
+                        <option value="Marcos (Frames)">Marcos (Frames) & Slots de Minsky</option>
+                        <option value="Redes Semánticas">Redes Semánticas (Nodos & Arcos)</option>
+                        <option value="IA Moderna & RAG">IA Moderna, BD Vectoriales & RAG</option>
+                    </optgroup>
                 </select>
             </div>
 
