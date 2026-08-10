@@ -160,12 +160,7 @@ graph TD
 
                 <!-- Mermaid Diagram Architecture -->
                 <div class="w-full bg-gray-50 dark:bg-gray-950 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 overflow-x-auto flex justify-center my-4">
-                    <pre class="mermaid text-center">
-graph LR
-    H[Hechos: Heurística / Datos] --> MI[Motor de Inferencia]
-    R[Reglas de Producción: SI-ENTONCES] --> MI
-    MI --> D[Decisión / Diagnóstico]
-                    </pre>
+                    <div id="mermaid-bc" class="w-full flex justify-center"><span class="text-xs text-gray-400">Cargando diagrama...</span></div>
                 </div>
             </div>
         </section>
@@ -183,13 +178,7 @@ graph LR
 
                 <!-- Mermaid Graph -->
                 <div class="w-full bg-gray-50 dark:bg-gray-950 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 overflow-x-auto flex justify-center my-4">
-                    <pre class="mermaid text-center">
-graph TD
-    Animal[Animal] -->|es_un| Pájaro[Pájaro]
-    Pájaro -->|tiene_un| Alas[Alas]
-    Pájaro -->|es_un| Canario[Canario]
-    Pájaro -->|es_un| Pingüino[Pingüino]
-                    </pre>
+                    <div id="mermaid-semantic" class="w-full flex justify-center"><span class="text-xs text-gray-400">Cargando diagrama...</span></div>
                 </div>
             </div>
         </section>
@@ -207,16 +196,50 @@ graph TD
 
                 <!-- Mermaid Class Diagram from Whiteboard -->
                 <div class="w-full bg-gray-50 dark:bg-gray-950 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 overflow-x-auto flex justify-center my-4">
-                    <pre class="mermaid text-center">
-classDiagram
+                    <div id="mermaid-frames" class="w-full flex justify-center"><span class="text-xs text-gray-400">Cargando diagrama...</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. IA Moderna & RAG -->
+        <section id="section-rag" class="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-amber-200/70 dark:border-amber-900/50 shadow-sm scroll-mt-20">
+            <h2 class="text-xl font-bold font-outfit text-gray-900 dark:text-white mb-4 border-b border-amber-100 dark:border-gray-700 pb-2 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                9. Evolución: Lógica de Predicados, BD Vectoriales y RAG
+            </h2>
+            <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300">
+                <p>
+                    <strong>Era de la IA Moderna (RAG & BD Vectoriales):</strong> Los sistemas de IA actuales combinan modelos de lenguaje con bases vectoriales y consulta de documentos en tiempo real.
+                </p>
+                <!-- Mermaid Flowchart RAG -->
+                <div class="w-full bg-gray-50 dark:bg-gray-950 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 overflow-x-auto flex justify-center my-4">
+                    <div id="mermaid-rag" class="w-full flex justify-center"><span class="text-xs text-gray-400">Cargando diagrama...</span></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS Tabs Toggle -->
+    <script>
+        const GUIDE_MERMAID_DIAGRAMS = {
+            'mermaid-bc': `graph LR
+    H["Hechos"] --> MI["Motor de Inferencia"]
+    R["Reglas SI-ENTONCES"] --> MI
+    MI --> D["Decision / Diagnostico"]`,
+            'mermaid-semantic': `graph TD
+    Animal --> |"es_un"| Pajaro["Pajaro"]
+    Pajaro --> |"tiene_un"| Alas["Alas"]
+    Pajaro --> |"es_un"| Canario["Canario"]
+    Pajaro --> |"es_un"| Pinguino["Pinguino - Vuela No"]`,
+            'mermaid-frames': `classDiagram
     class Escuela {
-        +Facultades: String
-        +Edificios: Char
-        +Profesores: String
-        +Alumnos: String
-        +tieneTalleres: bool
-        +colegiaturas: float
-        +cicloEscolar: 26-3
+        +String Facultades
+        +Char Edificios
+        +String Profesores
+        +String Alumnos
+        +bool tieneTalleres
+        +float colegiaturas
         +Inscribir()
         +darMantenimiento()
         +pagar()
@@ -242,50 +265,42 @@ classDiagram
     class Inscribir {
         +InscribirMaterias()
         +ElegirTalleres()
-        +TipoMateria
     }
     class TipoMateria {
         -en_linea
         -presencial
     }
-
     Escuela --> Facultades : contiene
     Escuela --> Alumnos : contiene
     Escuela --> Colegiaturas : gestiona
     Escuela --> Inscribir : procesa
-    Inscribir --> TipoMateria : requiere
-                    </pre>
-                </div>
-            </div>
-        </section>
+    Inscribir --> TipoMateria : requiere`,
+            'mermaid-rag': `graph LR
+    U["Usuario"] --> |"Consulta"| R["Recuperador RAG"]
+    R --> |"Busca Embeddings"| V["BD Vectorial"]
+    V --> |"Documentos"| L["LLM"]
+    L --> |"Respuesta"| U`
+        };
 
-        <!-- 9. IA Moderna & RAG -->
-        <section id="section-rag" class="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-amber-200/70 dark:border-amber-900/50 shadow-sm scroll-mt-20">
-            <h2 class="text-xl font-bold font-outfit text-gray-900 dark:text-white mb-4 border-b border-amber-100 dark:border-gray-700 pb-2 flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-                9. Evolución: Lógica de Predicados, BD Vectoriales y RAG
-            </h2>
-            <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300">
-                <p>
-                    <strong>Era de la IA Moderna (RAG & BD Vectoriales):</strong> Los sistemas de IA actuales combinan modelos de lenguaje con bases vectoriales y consulta de documentos en tiempo real.
-                </p>
-                <!-- Mermaid Flowchart RAG -->
-                <div class="w-full bg-gray-50 dark:bg-gray-950 rounded-2xl p-4 border border-gray-200 dark:border-gray-800 overflow-x-auto flex justify-center my-4">
-                    <pre class="mermaid text-center">
-graph LR
-    Usuario[Usuario] -->|Consulta| Recuperador[Recuperador RAG]
-    Recuperador -->|Busca Embeddings| BDV[Base de Datos Vectorial]
-    BDV -->|Documentos Relevantes| LLM[Modelo de Lenguaje LLM]
-    LLM -->|Respuesta Precisa sin Alucinaciones| Usuario
-                    </pre>
-                </div>
-            </div>
-        </section>
+        let guideMermaidRendered = false;
 
-    </div>
+        async function renderGuideMermaid() {
+            if (guideMermaidRendered) return;
+            guideMermaidRendered = true;
+            for (const [id, code] of Object.entries(GUIDE_MERMAID_DIAGRAMS)) {
+                const el = document.getElementById(id);
+                if (!el) continue;
+                try {
+                    const uid = 'gm-' + id + '-' + Math.floor(Math.random() * 99999);
+                    const { svg } = await mermaid.render(uid, code);
+                    el.innerHTML = svg;
+                } catch (e) {
+                    el.innerHTML = '<span class="text-red-400 text-xs font-mono">Error al renderizar diagrama: ' + e.message + '</span>';
+                    console.error('Mermaid error [' + id + ']:', e);
+                }
+            }
+        }
 
-    <!-- JS Tabs Toggle -->
-    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const btnP1 = document.getElementById('guide-tab-p1');
             const btnP2 = document.getElementById('guide-tab-p2');
@@ -308,6 +323,7 @@ graph LR
                 contentP1.classList.add('hidden');
                 btnP2.className = activeClassP2;
                 btnP1.className = inactiveClass;
+                setTimeout(renderGuideMermaid, 100);
             });
         });
     </script>

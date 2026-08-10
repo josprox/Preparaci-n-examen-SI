@@ -7,13 +7,24 @@
             Aula Multimedia de Repaso
         </h1>
         <p class="text-sm text-gray-600 dark:text-gray-400">
-            Escucha los podcasts educativos y repasa los videos explicativos para el Examen Espejo.
+            Escucha los podcasts educativos y repasa los videos explicativos organizados por parcial.
         </p>
     </div>
 
-    <!-- Grid Container -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Category Tabs -->
+    <div class="flex gap-2 mb-6 border-b border-gray-200 dark:border-gray-700">
+        <button id="tab-p1-btn" class="px-5 py-2.5 font-bold font-outfit text-xs rounded-t-2xl border-b-2 border-purple-600 text-purple-600 dark:text-purple-400 bg-white dark:bg-gray-800 shadow-sm transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            1er Parcial: Redes Neuronales
+        </button>
+        <button id="tab-p2-btn" class="px-5 py-2.5 font-bold font-outfit text-xs text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 rounded-t-2xl border-b-2 border-transparent transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            2do Parcial: Sistemas de Conocimiento
+        </button>
+    </div>
 
+    <!-- 1er Parcial Content -->
+    <div id="content-p1" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Column Left: Video Lesson -->
         <div class="space-y-6">
             <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
@@ -31,8 +42,7 @@
 
                 <!-- Video Container -->
                 <div class="relative overflow-hidden rounded-2xl border border-gray-150 dark:border-gray-750 bg-black aspect-video flex items-center justify-center">
-                    <!-- Custom Placeholder Cover -->
-                    <div id="video-cover" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-white p-4 text-center cursor-pointer group z-20">
+                    <div id="video-cover-p1" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-white p-4 text-center cursor-pointer group z-20">
                         <div class="w-16 h-16 rounded-full bg-red-600 group-hover:bg-red-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 mb-3">
                             <svg class="w-8 h-8 fill-current text-white ml-1" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -42,8 +52,7 @@
                         <span class="text-[10px] text-gray-400 mt-1">Carga local instantánea</span>
                     </div>
 
-                    <!-- Loading Spinner Overlay -->
-                    <div id="video-loader" class="absolute inset-0 hidden flex flex-col items-center justify-center bg-gray-900 text-white p-4 z-20">
+                    <div id="video-loader-p1" class="absolute inset-0 hidden flex flex-col items-center justify-center bg-gray-900 text-white p-4 z-20">
                         <svg class="animate-spin h-10 w-10 text-red-500 mb-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -51,8 +60,7 @@
                         <span class="text-xs font-semibold font-outfit text-gray-300">Preparando clase...</span>
                     </div>
 
-                    <!-- Actual HTML5 Video tag -->
-                    <video id="main-video" class="hidden w-full h-full object-cover" controls preload="none">
+                    <video id="main-video-p1" class="hidden w-full h-full object-cover" controls preload="none">
                         Tu dispositivo no soporta la reproducción de video HTML5.
                     </video>
                 </div>
@@ -65,7 +73,6 @@
 
         <!-- Column Right: Podcasts / Audios -->
         <div class="space-y-6">
-
             <!-- Podcast 1 -->
             <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                 <div class="flex items-center gap-3">
@@ -81,7 +88,6 @@
                 </div>
 
                 <div class="space-y-3">
-                    <!-- Play Button Placeholder -->
                     <button id="audio1-btn" onclick="prepareAudio('audio1', '{{ asset('media/como_sienten_y_deciden_maquinas.m4a') }}')" class="w-full py-4 px-6 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-2xl shadow-sm text-sm flex items-center justify-center gap-2 transition-all cursor-pointer">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
@@ -89,7 +95,6 @@
                         <span>Preparar y Escuchar Podcast</span>
                     </button>
 
-                    <!-- Loading Spinner -->
                     <div id="audio1-loader" class="hidden py-4 text-center flex items-center justify-center gap-2 text-xs font-semibold text-purple-600 dark:text-purple-400">
                         <svg class="animate-spin h-5 w-5 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -98,7 +103,6 @@
                         <span>Cargando audio localmente...</span>
                     </div>
 
-                    <!-- Audio Element (hidden initially) -->
                     <div id="audio1-container" class="hidden p-3 bg-gray-50 dark:bg-gray-950 rounded-2xl border border-gray-100 dark:border-gray-850">
                         <audio id="audio1" class="w-full" controls preload="none">
                             Tu dispositivo no soporta la reproducción de audio HTML5.
@@ -126,7 +130,6 @@
                 </div>
 
                 <div class="space-y-3">
-                    <!-- Play Button Placeholder -->
                     <button id="audio2-btn" onclick="prepareAudio('audio2', '{{ asset('media/repaso_examen_bimestral.m4a') }}')" class="w-full py-4 px-6 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-2xl shadow-sm text-sm flex items-center justify-center gap-2 transition-all cursor-pointer">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
@@ -134,7 +137,6 @@
                         <span>Preparar y Escuchar Podcast</span>
                     </button>
 
-                    <!-- Loading Spinner -->
                     <div id="audio2-loader" class="hidden py-4 text-center flex items-center justify-center gap-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400">
                         <svg class="animate-spin h-5 w-5 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -143,7 +145,6 @@
                         <span>Cargando audio localmente...</span>
                     </div>
 
-                    <!-- Audio Element (hidden initially) -->
                     <div id="audio2-container" class="hidden p-3 bg-gray-50 dark:bg-gray-950 rounded-2xl border border-gray-100 dark:border-gray-850">
                         <audio id="audio2" class="w-full" controls preload="none">
                             Tu dispositivo no soporta la reproducción de audio HTML5.
@@ -155,14 +156,105 @@
                     Sesión de repaso exhaustiva para el examen espejo. En esta grabación se analizan las preguntas teóricas clave y el planteamiento general de los ejercicios prácticos de redes neuronales, perceptrón, backpropagation y Hopfield.
                 </p>
             </div>
+        </div>
+    </div>
 
+    <!-- 2do Parcial Content (Hidden by default) -->
+    <div id="content-p2" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Column Left: Video Lesson -->
+        <div class="space-y-6">
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="p-3 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-2xl">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold font-outfit text-gray-900 dark:text-white">Clase: Sistemas de Conocimiento & Marcos</h2>
+                        <span class="text-[10px] uppercase font-bold text-gray-450 dark:text-gray-400 tracking-wider">Video Explicativo (MP4)</span>
+                    </div>
+                </div>
+
+                <!-- Video Container -->
+                <div class="relative overflow-hidden rounded-2xl border border-gray-150 dark:border-gray-750 bg-black aspect-video flex items-center justify-center">
+                    <div id="video-cover-p2" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-white p-4 text-center cursor-pointer group z-20">
+                        <div class="w-16 h-16 rounded-full bg-amber-600 group-hover:bg-amber-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 mb-3">
+                            <svg class="w-8 h-8 fill-current text-white ml-1" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-semibold font-outfit">Haga clic para reproducir video</span>
+                        <span class="text-[10px] text-gray-400 mt-1">Carga local instantánea</span>
+                    </div>
+
+                    <div id="video-loader-p2" class="absolute inset-0 hidden flex flex-col items-center justify-center bg-gray-900 text-white p-4 z-20">
+                        <svg class="animate-spin h-10 w-10 text-amber-500 mb-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span class="text-xs font-semibold font-outfit text-gray-300">Preparando clase...</span>
+                    </div>
+
+                    <video id="main-video-p2" class="hidden w-full h-full object-cover" controls preload="none">
+                        Tu dispositivo no soporta la reproducción de video HTML5.
+                    </video>
+                </div>
+
+                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Aprende los fundamentos de la representación del conocimiento: redes semánticas, marcos (frames), ranuras (slots), y cómo los motores de inferencia aplican reglas de producción SI-ENTONCES para derivar nuevos hechos y diagnósticos inteligentes.
+                </p>
+            </div>
         </div>
 
+        <!-- Column Right: Podcasts / Audios -->
+        <div class="space-y-6">
+            <!-- Podcast 2do Parcial -->
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="p-3 bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 rounded-2xl">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 3c-3.87 0-7 3.13-7 7v4c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H7v-3c0-2.76 2.24-5 5-5s5 2.24 5 5v3h-2c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-4c0-3.87-3.13-7-7-7z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold font-outfit text-gray-900 dark:text-white">Podcast: Cómo estructuran su conocimiento las máquinas</h2>
+                        <span class="text-[10px] uppercase font-bold text-gray-450 dark:text-gray-400 tracking-wider">Audio Clase (MP3)</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button id="audio3-btn" onclick="prepareAudio('audio3', '{{ asset('media/como_las_maquinas_estructuran_conocimiento.mp3') }}')" class="w-full py-4 px-6 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-2xl shadow-sm text-sm flex items-center justify-center gap-2 transition-all cursor-pointer">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <span>Preparar y Escuchar Podcast</span>
+                    </button>
+
+                    <div id="audio3-loader" class="hidden py-4 text-center flex items-center justify-center gap-2 text-xs font-semibold text-teal-600 dark:text-teal-400">
+                        <svg class="animate-spin h-5 w-5 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Cargando audio localmente...</span>
+                    </div>
+
+                    <div id="audio3-container" class="hidden p-3 bg-gray-50 dark:bg-gray-950 rounded-2xl border border-gray-100 dark:border-gray-850">
+                        <audio id="audio3" class="w-full" controls preload="none">
+                            Tu dispositivo no soporta la reproducción de audio HTML5.
+                        </audio>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Un análisis profundo de la estructuración del conocimiento mediante relaciones semánticas de pertenencia y ranuras de herencia que permiten automatizar la toma de decisiones complejas en la inteligencia artificial clásica.
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Blob Loader Script -->
     <script>
-        // Cache object urls to avoid re-fetching
         const loadedUrls = {};
 
         async function prepareAudio(id, url) {
@@ -171,24 +263,19 @@
             const container = document.getElementById(id + '-container');
             const player = document.getElementById(id);
 
-            // Hide play button, show loader
             btn.classList.add('hidden');
             loader.classList.remove('hidden');
 
             try {
                 let objectUrl = loadedUrls[url];
                 if (!objectUrl) {
-                    // Fetch the file as a blob
                     const response = await fetch(url);
                     if (!response.ok) throw new Error('Network response was not ok');
                     const blob = await response.blob();
-                    
-                    // Create object url
                     objectUrl = URL.createObjectURL(blob);
                     loadedUrls[url] = objectUrl;
                 }
 
-                // Assign to player and play
                 player.src = objectUrl;
                 loader.classList.add('hidden');
                 container.classList.remove('hidden');
@@ -201,11 +288,11 @@
             }
         }
 
-        // Prepare video event listener
-        document.getElementById('video-cover').addEventListener('click', async function() {
-            const cover = document.getElementById('video-cover');
-            const loader = document.getElementById('video-loader');
-            const video = document.getElementById('main-video');
+        // P1 Video Trigger
+        document.getElementById('video-cover-p1').addEventListener('click', async function() {
+            const cover = document.getElementById('video-cover-p1');
+            const loader = document.getElementById('video-loader-p1');
+            const video = document.getElementById('main-video-p1');
             const videoUrl = "{{ asset('media/sistemas_a_redes_neuronales.mp4') }}";
 
             cover.classList.add('hidden');
@@ -231,6 +318,63 @@
                 cover.classList.remove('hidden');
                 loader.classList.add('hidden');
             }
+        });
+
+        // P2 Video Trigger
+        document.getElementById('video-cover-p2').addEventListener('click', async function() {
+            const cover = document.getElementById('video-cover-p2');
+            const loader = document.getElementById('video-loader-p2');
+            const video = document.getElementById('main-video-p2');
+            const videoUrl = "{{ asset('media/sistemas_inteligentes_2do_parcial.mp4') }}";
+
+            cover.classList.add('hidden');
+            loader.classList.remove('hidden');
+
+            try {
+                let objectUrl = loadedUrls[videoUrl];
+                if (!objectUrl) {
+                    const response = await fetch(videoUrl);
+                    if (!response.ok) throw new Error('Video fetch failed');
+                    const blob = await response.blob();
+                    objectUrl = URL.createObjectURL(blob);
+                    loadedUrls[videoUrl] = objectUrl;
+                }
+
+                video.src = objectUrl;
+                loader.classList.add('hidden');
+                video.classList.remove('hidden');
+                video.play();
+            } catch (error) {
+                console.error('Error loading video:', error);
+                alert('No se pudo preparar el video.');
+                cover.classList.remove('hidden');
+                loader.classList.add('hidden');
+            }
+        });
+
+        // Tabs logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnP1 = document.getElementById('tab-p1-btn');
+            const btnP2 = document.getElementById('tab-p2-btn');
+            const contentP1 = document.getElementById('content-p1');
+            const contentP2 = document.getElementById('content-p2');
+
+            const activeClass = "px-5 py-2.5 font-bold font-outfit text-xs rounded-t-2xl border-b-2 border-purple-600 text-purple-600 dark:text-purple-400 bg-white dark:bg-gray-800 shadow-sm transition-all flex items-center gap-2";
+            const inactiveClass = "px-5 py-2.5 font-bold font-outfit text-xs text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 rounded-t-2xl border-b-2 border-transparent transition-all flex items-center gap-2";
+
+            btnP1.addEventListener('click', () => {
+                contentP1.classList.remove('hidden');
+                contentP2.classList.add('hidden');
+                btnP1.className = activeClass;
+                btnP2.className = inactiveClass;
+            });
+
+            btnP2.addEventListener('click', () => {
+                contentP2.classList.remove('hidden');
+                contentP1.classList.add('hidden');
+                btnP2.className = activeClass;
+                btnP1.className = inactiveClass;
+            });
         });
     </script>
 </x-app-layout>
