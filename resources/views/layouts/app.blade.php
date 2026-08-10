@@ -151,6 +151,9 @@
                     <a href="{{ route('media.index') }}" class="text-sm font-semibold hover:text-[var(--m3-primary)] text-gray-600 dark:text-gray-300 font-outfit">
                         Multimedia
                     </a>
+                    <a href="{{ route('repaso.index') }}" class="text-sm font-semibold hover:text-[var(--m3-primary)] text-gray-600 dark:text-gray-300 font-outfit">
+                        Repaso Examen
+                    </a>
                     <a href="{{ route('history.index') }}" class="text-sm font-semibold hover:text-[var(--m3-primary)] text-gray-600 dark:text-gray-300 font-outfit">
                         Historial
                     </a>
@@ -179,6 +182,9 @@
             <a href="{{ route('media.index') }}" class="text-sm font-semibold hover:text-[var(--m3-primary)] text-gray-600 dark:text-gray-300 font-outfit py-1.5 border-b border-gray-100 dark:border-gray-850">
                 Multimedia
             </a>
+            <a href="{{ route('repaso.index') }}" class="text-sm font-semibold hover:text-[var(--m3-primary)] text-gray-600 dark:text-gray-300 font-outfit py-1.5 border-b border-gray-100 dark:border-gray-850">
+                Repaso Examen
+            </a>
             <a href="{{ route('history.index') }}" class="text-sm font-semibold hover:text-[var(--m3-primary)] text-gray-600 dark:text-gray-300 font-outfit py-1.5">
                 Historial
             </a>
@@ -200,6 +206,7 @@
                 <native:bottom-nav-item id="home" icon="home" label="Inicio" url="/" :active="request()->is('/')" />
                 <native:bottom-nav-item id="guide" icon="book-open" label="Guía" url="/guide" :active="request()->is('guide*')" />
                 <native:bottom-nav-item id="media" icon="video" label="Multimedia" url="/media" :active="request()->is('media*')" />
+                <native:bottom-nav-item id="repaso" icon="clipboard-list" label="Repaso" url="/repaso" :active="request()->is('repaso*')" />
                 <native:bottom-nav-item id="history" icon="history" label="Historial" url="/history" :active="request()->is('history*')" />
             </native:bottom-nav>
         </div>

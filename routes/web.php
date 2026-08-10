@@ -53,3 +53,9 @@ Route::get('/history/repeat/{id}', [HistoryController::class, 'repeat'])->name('
 Route::get('/media', function () {
     return view('media.index');
 })->name('media.index');
+
+// Repaso de Examen Interactivo (30 Preguntas, Flashcards, Quiz)
+Route::get('/repaso', function () {
+    return view('repaso.index');
+})->name('repaso.index');
+
