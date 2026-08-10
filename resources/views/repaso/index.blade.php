@@ -767,27 +767,27 @@
 
                     <div id="acc-content-${q.id}" class="hidden px-5 py-4 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-950/60 space-y-4">
                         <!-- Respuesta Rápida -->
-                        <div class="bg-amber-500/10 border border-amber-500/20 p-3.5 rounded-2xl">
-                            <div class="text-xs font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5 mb-1">
+                        <div class="bg-amber-500/5 dark:bg-amber-950/15 border border-amber-500/10 dark:border-amber-900/30 p-3.5 rounded-2xl">
+                            <div class="text-xs font-bold text-amber-800 dark:text-amber-350 flex items-center gap-1.5 mb-1">
                                 <span>Respuesta Rápida (Para Memorizar):</span>
                             </div>
-                            <p class="text-xs sm:text-sm text-gray-800 dark:text-amber-100 font-semibold">${q.quick}</p>
+                            <p class="text-xs sm:text-sm text-gray-900 dark:text-amber-100 font-semibold">${q.quick}</p>
                         </div>
 
                         <!-- Explicación Sencilla -->
-                        <div class="bg-indigo-500/10 border border-indigo-500/20 p-3.5 rounded-2xl">
-                            <div class="text-xs font-bold text-indigo-650 dark:text-indigo-300 flex items-center gap-1.5 mb-1">
+                        <div class="bg-indigo-500/5 dark:bg-indigo-950/15 border border-indigo-500/10 dark:border-indigo-900/30 p-3.5 rounded-2xl">
+                            <div class="text-xs font-bold text-indigo-800 dark:text-indigo-300 flex items-center gap-1.5 mb-1">
                                 <span>Explicación Sencilla:</span>
                             </div>
-                            <p class="text-xs sm:text-sm text-gray-750 dark:text-gray-300 leading-relaxed">${q.exp}</p>
+                            <p class="text-xs sm:text-sm text-gray-900 dark:text-gray-200 leading-relaxed">${q.exp}</p>
                         </div>
 
                         <!-- Respuesta Concisa / Técnica -->
-                        <div class="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 p-3.5 rounded-2xl">
-                            <div class="text-xs font-bold text-emerald-650 dark:text-emerald-400 flex items-center gap-1.5 mb-1">
+                        <div class="bg-emerald-500/5 dark:bg-emerald-950/15 border border-emerald-500/10 dark:border-emerald-900/30 p-3.5 rounded-2xl">
+                            <div class="text-xs font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5 mb-1">
                                 <span>Respuesta Concisa / Técnica:</span>
                             </div>
-                            <div class="text-xs text-gray-800 dark:text-gray-250 font-mono leading-relaxed whitespace-pre-wrap">${q.tech}</div>
+                            <div class="text-xs text-gray-900 dark:text-emerald-100 font-mono leading-relaxed whitespace-pre-wrap">${q.tech}</div>
                         </div>
                     </div>
                 </div>
